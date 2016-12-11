@@ -12,11 +12,11 @@ CREATE TABLE task (
 
 CREATE TABLE custom_user (
   id       SERIAL PRIMARY KEY,
-  name     TEXT NOT NULL,
-  surname  TEXT NOT NULL,
-  username TEXT NOT NULL,
-  password TEXT NOT NULL,
-  role     TEXT NOT NULL
+  name     TEXT        NOT NULL,
+  surname  TEXT        NOT NULL,
+  username TEXT UNIQUE NOT NULL,
+  password TEXT        NOT NULL,
+  role     TEXT        NOT NULL
 );
 
 CREATE TABLE student (
