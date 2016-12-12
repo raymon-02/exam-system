@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Sign Up</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="col-sm-12 header" id="header">
+        <h2 id="site-name">Exam system</h2>
+        <h4 id="site-slogan">Take exams with pleasure</h4>
+    </div>
+
+    <div class="col-sm-12 header">
+        <h1>Sign Up</h1>
+    </div>
+
+    <div class="container-fluid">
+        <form th:object="${user}" th:action="@{/register-process}" method="post" class="form-horizontal">
+            <div class="control-group" th:classappend="${#fields.hasErrors('username')} ? error"
+                 style="margin: 1ch" id="username">
+                <label class="control-label">Username:</label>
+                <div class="controls">
+                    <input type="text" th:field="*{username}">
+                    <span class="help-inline" th:errors="*{username}">[Errors]</span>
+                </div>
+            </div>
+            <div class="control-group" style="margin: 1ch">
+                <label class="control-label">Password:</label>
+                <div class="controls">
+                    <input type="password" th:field="*{password}">
+                </div>
+            </div>
+            <div class="control-group" style="margin: 1ch">
+                <label class="control-label">Name:</label>
+                <div class="controls">
+                    <input type="text" th:field="*{name}">
+                </div>
+            </div>
+            <div class="control-group" style="margin: 1ch">
+                <label class="control-label">Surname:</label>
+                <div class="controls">
+                    <input type="text" th:field="*{surname}">
+                </div>
+            </div>
+            <div class="form-actions" style="margin: 2ch">
+                <button type="submit">Sign up</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
