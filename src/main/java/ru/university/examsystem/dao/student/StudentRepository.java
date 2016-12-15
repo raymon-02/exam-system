@@ -8,6 +8,8 @@ import ru.university.examsystem.entity.User;
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
-    Student findStudentByUser(User user);
+    Student findById(long id);
+
+    Student findByUser(User user);
 
 }

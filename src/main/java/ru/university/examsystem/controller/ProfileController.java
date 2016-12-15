@@ -5,9 +5,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.university.examsystem.dao.exam.ExamService;
+import org.springframework.web.bind.annotation.RequestMethod;
 import ru.university.examsystem.dao.student.StudentService;
-import ru.university.examsystem.entity.Exam;
 import ru.university.examsystem.entity.Student;
 import ru.university.examsystem.entity.User;
 
@@ -17,16 +16,13 @@ import java.util.List;
 public class ProfileController {
 
     @Autowired
-    private ExamService examService;
-
-    @Autowired
     private StudentService studentService;
 
-    @RequestMapping(value = "student/profile")
+    @RequestMapping(value = "student/profile", method = RequestMethod.GET)
     public String studentProfile(Model model) {
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Student student = studentService.findStudentByUser(user);
+        Student student = studentService.findByUser(user);
 
         model.addAttribute("exams", student.getExams());
         model.addAttribute("name", user.getName());
@@ -34,8 +30,15 @@ public class ProfileController {
         return "student/profile";
     }
 
-    @RequestMapping(value = "prepod/profile")
+    @RequestMapping(value = "prepod/profile", method = RequestMethod.GET)
     public String prepodProfile(Model model) {
+
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<Student> students = studentService.findAll();
+
+        model.addAttribute("students", students);
+        model.addAttribute("name", user.getName());
+
         return "prepod/profile";
     }
 }

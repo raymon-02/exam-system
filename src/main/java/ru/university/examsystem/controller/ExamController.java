@@ -34,7 +34,7 @@ public class ExamController {
     @RequestMapping(value = "/student/exam", method = RequestMethod.GET)
     public String exam(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Student student = studentService.findStudentByUser(user);
+        Student student = studentService.findByUser(user);
         List<Task> tasks = chooseTasks();
 
         Exam exam = new Exam();
@@ -53,7 +53,7 @@ public class ExamController {
     @RequestMapping(value = "/student/exam-process", method = RequestMethod.PUT)
     public String examProcess(@Valid @ModelAttribute("exam") Exam examPart) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        Student student = studentService.findStudentByUser(user);
+        Student student = studentService.findByUser(user);
         List<Exam> exams = examService.findAllExamsByStudent(student);
 
         exams.sort((e1, e2) -> (int) (e1.getId() - e2.getId()));

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.university.examsystem.entity.Student;
 import ru.university.examsystem.entity.User;
 
-import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -14,8 +14,18 @@ public class StudentServiceImpl implements StudentService {
     private StudentRepository studentRepository;
 
     @Override
-    public Student findStudentByUser(User user) {
-        return studentRepository.findStudentByUser(user);
+    public Student findById(long id) {
+        return studentRepository.findById(id);
+    }
+
+    @Override
+    public Student findByUser(User user) {
+        return studentRepository.findByUser(user);
+    }
+
+    @Override
+    public List<Student> findAll() {
+        return studentRepository.findAll();
     }
 
     @Override

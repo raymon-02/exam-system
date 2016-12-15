@@ -34,35 +34,23 @@
         <h3 th:text="'Hello, ' + ${name} + '!'"></h3>
     </div>
 
-    <div class="container-fluid" th:if="${exams.isEmpty()}" style="float: left; width: 70%; margin: 2ch">
-        <h4>No exams were taken</h4>
+    <div class="container-fluid" th:if="${students.isEmpty()}" style="float: left; width: 70%; margin: 2ch">
+        <h4>No students were registered</h4>
     </div>
     <div class="container-fluid" style="float: left; width: 70%; margin: 2ch">
-        <table class="table table-bordered" th:unless="${exams.isEmpty()}">
+        <table class="table table-bordered" th:unless="${students.isEmpty()}">
             <tr>
-                <th>Exam id</th>
-                <th>Variants</th>
-                <th>Answers</th>
-                <th>Mark</th>
+                <th>Student id</th>
+                <th>Name Surname</th>
             </tr>
-            <div th:each="exam : ${exams}">
-                <tr>
-                    <td rowspan="2" th:text="${exam.id}">Exam id</td>
-                    <td th:text="${exam.taskFirst.text}">Task1</td>
-                    <td th:text="${exam.answerFirst}">Answer1</td>
-                    <td rowspan="2" th:text="${exam.mark}">Mark</td>
-                </tr>
-                <tr>
-                    <td th:text="${exam.taskSecond.text}">Task2</td>
-                    <td th:text="${exam.answerSecond}">Answer2</td>
-                </tr>
-            </div>
+            <tr th:each="student : ${students}">
+                <td th:text="${student.id}">Student id</td>
+                <td>
+                    <a th:href="@{|/prepod/exams/${student.id}|}"
+                       th:text="|${student.user.name} ${student.user.surname}|">Name Surname</a>
+                </td>
+            </tr>
         </table>
-    </div>
-    <div class="container-fluid" style="float: right; margin-right: 8.8%">
-        <ul>
-            <li><a th:href="@{/student/exam}">Take exam</a>
-        </ul>
     </div>
 </div>
 </body>

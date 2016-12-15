@@ -23,7 +23,7 @@
         <form th:object="${exam}" th:action="@{/student/exam-process}" th:method="put" class="form-horizontal">
             <div class="control-group" style="float: left; width: 40%">
                 <label class="control-label" style="float: left">Task 1:</label>
-                <textarea readonly style="text-align: left; font-weight: bold" rows="2" cols="61"
+                <textarea readonly style="text-align: left; font-weight: bold" rows="3" cols="61"
                           class="control-label" th:text="*{taskFirst.text}">
                 </textarea>
                 <div class="controls">
@@ -32,7 +32,7 @@
             </div>
             <div class="control-group" style="float: right; width: 40%; margin-right: 5%">
                 <label class="control-label" style="float: left">Task 2:</label>
-                <textarea readonly style="text-align: left; font-weight: bold" rows="2" cols="61"
+                <textarea readonly style="text-align: left; font-weight: bold" rows="3" cols="61"
                           class="control-label" th:text="*{taskSecond.text}">
                 </textarea>
                 <div class="controls">

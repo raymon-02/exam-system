@@ -28,25 +28,28 @@
                     <span class="help-inline" th:errors="*{username}">[Errors]</span>
                 </div>
             </div>
-            <div class="control-group" th:classappend="${#fields.hasErrors('username')} ? error"
+            <div class="control-group" th:classappend="${#fields.hasErrors('password')} ? error"
                  style="margin: 1ch" id="password">
                 <label class="control-label">Password:</label>
                 <div class="controls">
                     <input type="password" th:field="*{password}">
+                    <span class="help-inline" th:errors="*{password}">[Errors]</span>
                 </div>
             </div>
-            <div class="control-group" th:classappend="${#fields.hasErrors('username')} ? error"
+            <div class="control-group" th:classappend="${#fields.hasErrors('name')} ? error"
                  style="margin: 1ch" id="name">
                 <label class="control-label">Name:</label>
                 <div class="controls">
                     <input type="text" th:field="*{name}">
+                    <span class="help-inline" th:errors="*{name}">[Errors]</span>
                 </div>
             </div>
-            <div class="control-group" th:classappend="${#fields.hasErrors('username')} ? error"
+            <div class="control-group" th:classappend="${#fields.hasErrors('surname')} ? error"
                  style="margin: 1ch" id="surname">
                 <label class="control-label">Surname:</label>
                 <div class="controls">
                     <input type="text" th:field="*{surname}">
+                    <span class="help-inline" th:errors="*{surname}">[Errors]</span>
                 </div>
             </div>
             <div class="form-actions" style="margin: 1ch">
