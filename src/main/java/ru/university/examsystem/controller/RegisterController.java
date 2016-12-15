@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class RegisterController {
 
     @Autowired
-    protected AuthenticationManager authenticationManager;
+    private AuthenticationManager authenticationManager;
 
     @Autowired
     private StudentService studentService;
@@ -47,23 +47,23 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/register-process", method = RequestMethod.POST)
-    public String registerProcess(@Valid @ModelAttribute("user") User user, BindingResult result, SessionStatus status,
+    public String registerProcess(@ModelAttribute("user") User user, BindingResult result, SessionStatus status,
                                   HttpServletRequest request) {
 
         if (userService.findByUsername(user.getUsername()) != null) {
-            result.rejectValue("username", "existinguser", "User with that username already exists");
+            result.rejectValue("username", "existing.user", "User with that username already exists");
             return "student/register";
         }
         if (user.getPassword() == null || user.getPassword().isEmpty()) {
-            result.rejectValue("password", "emptyfield", "Field cannot be empty");
+            result.rejectValue("password", "empty.field", "Field cannot be empty");
             return "student/register";
         }
         if (user.getName() == null || user.getName().isEmpty()) {
-            result.rejectValue("name", "emptyfield", "Field cannot be empty");
+            result.rejectValue("name", "empty.field", "Field cannot be empty");
             return "student/register";
         }
         if (user.getSurname() == null || user.getSurname().isEmpty()) {
-            result.rejectValue("surname", "emptyfield", "Field cannot be empty");
+            result.rejectValue("surname", "empty.field", "Field cannot be empty");
             return "student/register";
         }
 

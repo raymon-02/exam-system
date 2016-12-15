@@ -54,22 +54,20 @@
                     <th>Answers</th>
                     <th>Mark</th>
                 </tr>
-                <div th:each="exam : ${student.exams}">
-                    <tr>
-                        <td rowspan="2" th:text="${exam.id}">Exam id</td>
-                        <td th:text="${exam.taskFirst.text}">Task1</td>
-                        <td th:text="${exam.answerFirst}">Answer1</td>
-                        <td rowspan="2">
-                            <label style="font-weight: normal">Current mark: </label>
-                            <label th:text="${exam.mark}">Current mark</label>
-                            <input type="text" style="width: 100%" name="mark" id="mark"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td th:text="${exam.taskSecond.text}">Task2</td>
-                        <td th:text="${exam.answerSecond}">Answer2</td>
-                    </tr>
-                </div>
+                <tr>
+                    <td rowspan="2" th:text="${exam.id}">Exam id</td>
+                    <td th:text="${exam.taskFirst.text}">Task1</td>
+                    <td th:text="${exam.answerFirst}">Answer1</td>
+                    <td rowspan="2">
+                        <label style="font-weight: normal">Current mark: </label>
+                        <label th:text="${exam.mark}">Current mark</label>
+                        <input type="text" style="width: 100%" name="mark" id="mark"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td th:text="${exam.taskSecond.text}">Task2</td>
+                    <td th:text="${exam.answerSecond}">Answer2</td>
+                </tr>
             </table>
             <div class="form-actions" style="margin: 1ch">
                 <button type="submit">Submit</button>

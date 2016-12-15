@@ -51,7 +51,7 @@ public class ExamController {
     }
 
     @RequestMapping(value = "/student/exam-process", method = RequestMethod.PUT)
-    public String examProcess(@Valid @ModelAttribute("exam") Exam examPart) {
+    public String examProcess(@ModelAttribute("exam") Exam examPart) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Student student = studentService.findByUser(user);
         List<Exam> exams = examService.findAllExamsByStudent(student);
@@ -68,7 +68,7 @@ public class ExamController {
         return "redirect:/student/success";
     }
 
-    @RequestMapping(value = "/student/success")
+    @RequestMapping(value = "/student/success", method =RequestMethod.GET)
     public String examSuccess(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("name", user.getName());

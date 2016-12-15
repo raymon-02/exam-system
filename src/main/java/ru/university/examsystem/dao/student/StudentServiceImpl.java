@@ -5,9 +5,11 @@ import org.springframework.stereotype.Service;
 import ru.university.examsystem.entity.Student;
 import ru.university.examsystem.entity.User;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
