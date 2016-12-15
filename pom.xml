@@ -18,6 +18,7 @@
 
     <properties>
         <postgresql>9.1-901.jdbc4</postgresql>
+        <lombok>1.16.12</lombok>
         <thymeleaf.version>3.0.0.RELEASE</thymeleaf.version>
         <thymeleaf-layout-dialect.version>2.0.0</thymeleaf-layout-dialect.version>
     </properties>
@@ -64,6 +65,15 @@
             <artifactId>postgresql</artifactId>
             <version>${postgresql}</version>
         </dependency>
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok}</version>
+        </dependency>
+
+
 
     </dependencies>
 
