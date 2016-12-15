@@ -57,7 +57,7 @@ public class MarkController {
     @RequestMapping(value = "/prepod/marks-process/{id}/{exam_id}", method = RequestMethod.POST)
     public String processStudentMarks(@PathVariable("id") long id,
                                       @PathVariable("exam_id") long examId,
-                                      @RequestParam("mark") int mark) {
+                                      @RequestParam("mark") Integer mark) {
 
         Student student = studentService.findById(id);
         List<Exam> exams = student.getExams();

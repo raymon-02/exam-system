@@ -54,6 +54,10 @@ public class RegisterController {
             result.rejectValue("username", "existing.user", "User with that username already exists");
             return "student/register";
         }
+        if (user.getUsername() == null || user.getUsername().isEmpty()) {
+            result.rejectValue("password", "empty.field", "Field cannot be empty");
+            return "student/register";
+        }
         if (user.getPassword() == null || user.getPassword().isEmpty()) {
             result.rejectValue("password", "empty.field", "Field cannot be empty");
             return "student/register";
