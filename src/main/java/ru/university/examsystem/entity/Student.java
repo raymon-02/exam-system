@@ -1,6 +1,7 @@
 package ru.university.examsystem.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,8 +15,8 @@ public class Student {
     @OneToOne(cascade = CascadeType.PERSIST)
     private User user;
 
-    @OneToMany
-    private List<Exam> exams;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "student")
+    private List<Exam> exams = new ArrayList<>();
 
     public Student() {
     }

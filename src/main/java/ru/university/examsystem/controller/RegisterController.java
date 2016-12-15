@@ -48,10 +48,22 @@ public class RegisterController {
 
     @RequestMapping(value = "/register-process", method = RequestMethod.POST)
     public String registerProcess(@Valid @ModelAttribute("user") User user, BindingResult result, SessionStatus status,
-                                  HttpServletRequest request, HttpServletResponse response) {
+                                  HttpServletRequest request) {
 
         if (userService.findByUsername(user.getUsername()) != null) {
             result.rejectValue("username", "existinguser", "User with that username already exists");
+            return "student/register";
+        }
+        if (user.getPassword() == null || user.getPassword().isEmpty()) {
+            result.rejectValue("password", "emptyfield", "Field cannot be empty");
+            return "student/register";
+        }
+        if (user.getName() == null || user.getName().isEmpty()) {
+            result.rejectValue("name", "emptyfield", "Field cannot be empty");
+            return "student/register";
+        }
+        if (user.getSurname() == null || user.getSurname().isEmpty()) {
+            result.rejectValue("surname", "emptyfield", "Field cannot be empty");
             return "student/register";
         }
 

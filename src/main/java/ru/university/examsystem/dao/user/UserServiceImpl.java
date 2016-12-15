@@ -5,7 +5,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import ru.university.examsystem.entity.User;
 
+import javax.transaction.Transactional;
+
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     @Autowired

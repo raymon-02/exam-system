@@ -11,16 +11,20 @@ public class Exam {
     private Long id;
 
     @ManyToOne
-    private Task firstTask;
+    private Task taskFirst;
 
     @ManyToOne
-    private Task secondTask;
+    private Task taskSecond;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "student_id")
     private Student student;
 
-    @Column(name = "answer")
-    private String answer;
+    @Column(name = "answer_first")
+    private String answerFirst;
+
+    @Column(name = "answer_second")
+    private String answerSecond;
 
     @Column(name = "mark")
     private Integer mark;
@@ -33,20 +37,20 @@ public class Exam {
         this.id = id;
     }
 
-    public Task getFirstTask() {
-        return firstTask;
+    public Task getTaskFirst() {
+        return taskFirst;
     }
 
-    public void setFirstTask(Task firstTask) {
-        this.firstTask = firstTask;
+    public void setTaskFirst(Task taskFirst) {
+        this.taskFirst = taskFirst;
     }
 
-    public Task getSecondTask() {
-        return secondTask;
+    public Task getTaskSecond() {
+        return taskSecond;
     }
 
-    public void setSecondTask(Task secondTask) {
-        this.secondTask = secondTask;
+    public void setTaskSecond(Task taskSecond) {
+        this.taskSecond = taskSecond;
     }
 
     public Student getStudent() {
@@ -57,12 +61,20 @@ public class Exam {
         this.student = student;
     }
 
-    public String getAnswer() {
-        return answer;
+    public String getAnswerFirst() {
+        return answerFirst;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setAnswerFirst(String answerFirst) {
+        this.answerFirst = answerFirst;
+    }
+
+    public String getAnswerSecond() {
+        return answerSecond;
+    }
+
+    public void setAnswerSecond(String answerSecond) {
+        this.answerSecond = answerSecond;
     }
 
     public Integer getMark() {

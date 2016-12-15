@@ -29,6 +29,7 @@ CREATE TABLE exam (
   task_first_id  INT REFERENCES task,
   task_second_id INT REFERENCES task,
   student_id     INT REFERENCES student,
-  answer         TEXT,
+  answer_first   TEXT,
+  answer_second  TEXT,
   mark           INT CHECK (mark > 0 AND mark < 6)
 );

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
-      lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>Getting started</title>
+    <title>Success upload</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
@@ -19,11 +18,13 @@
             <li><a th:href="@{/login}">Sign in</a>
             <li><a th:href="@{/register}">Sign up</a>
             <li><a th:href="@{/logout}">Sign out</a>
+            <li><a th:href="@{/student/profile}">Profile</a>
         </ul>
     </div>
 
-    <div class="container-fluid" style="width: 70%; float: left; margin-left: 3%">
-        Something important
+    <div class="col-sm-6 header">
+        <h3 th:text="'Hello, ' + ${name} + '!'"></h3>
+        <h4>Your answers were success upload!</h4>
     </div>
 </div>
 </body>
